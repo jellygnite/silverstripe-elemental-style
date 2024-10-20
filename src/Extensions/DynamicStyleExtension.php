@@ -159,7 +159,7 @@ class DynamicStyleExtension extends DataExtension
 						$tabName = (!empty($styleobject->getTab())) ?  $styleobject->getTab() : $default_tab_name;
 						if(!empty($tabName)) {
 							if(!$fields->fieldByName('Root.'.$tabName)) {
-								$fields->insertAfter(Tab::create($tabName), 'Settings');
+								$fields->insertAfter('Settings', Tab::create($tabName));
 							}			
 						}
 						
@@ -172,7 +172,7 @@ class DynamicStyleExtension extends DataExtension
 									$arrFieldGoups[$fieldGroup]->setRightTitle($styleobject->getDescription());
 								}
 								if($fieldAfter && $fields->dataFieldByName($fieldAfter)){
-									$fields->insertAfter($arrFieldGoups[$fieldGroup],$fieldAfter);
+									$fields->insertAfter($fieldAfter, $arrFieldGoups[$fieldGroup]);
 								} else {
 									$fields->addFieldToTab(
 										'Root.'. $tabName,
@@ -183,7 +183,7 @@ class DynamicStyleExtension extends DataExtension
 							$arrFieldGoups[$fieldGroup]->push($styleFormField);
 						} else {
 							if($fieldAfter && $fields->dataFieldByName($fieldAfter)){
-								$fields->insertAfter($styleFormField,$fieldAfter);
+								$fields->insertAfter($fieldAfter, $styleFormField);
 							} else {
 								$fields->addFieldToTab(
 									'Root.'. $tabName,
@@ -292,11 +292,11 @@ class DynamicStyleExtension extends DataExtension
 						$tabName = (!empty($styleobject->getTab())) ?  $styleobject->getTab() : $default_tab_name;
 						if(!empty($tabName)) {
 							if(!$fields->fieldByName($fieldNamePrefix.'Root.'.$tabName)) {
-								$fields->insertAfter(Tab::create($tabName), 'Settings');
+								$fields->insertAfter('Settings', Tab::create($tabName));
 							}			
 						}
 						if($fieldAfter && $fields->dataFieldByName($fieldAfter)){
-							$fields->insertAfter($styleFormField,$fieldAfter);
+							$fields->insertAfter($fieldAfter, $styleFormField);
 						} else {
 							$fields->addFieldToTab(
 								$fieldNamePrefix.'Root.'. $tabName,

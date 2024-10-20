@@ -13,7 +13,6 @@ use SilverStripe\Dev\Debug;
  * @property string $Location
  * @property array $Styles
  * @property integer $Sort		// optional to move items to top or bottom of list
- *
  * @method string getIndex()
  * @method string getTitle()
  * @method string getDescription()
@@ -38,6 +37,7 @@ class StyleObject implements \JsonSerializable {
 	protected $suffix;
 	protected $default;
 	protected $group;
+	protected $sort;
 	
 	
 	private static $arr_default = [
