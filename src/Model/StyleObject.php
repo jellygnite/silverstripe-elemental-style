@@ -65,7 +65,7 @@ class StyleObject implements \JsonSerializable {
 		'ImageSize' => null
 	];
 
-    public function __construct(String $index, Array $arr_object = [])
+    public function __construct(string $index, array $arr_object = [])
     {
 		
 		$arr_style = array_merge(self::$arr_default, $arr_object);
@@ -86,7 +86,7 @@ class StyleObject implements \JsonSerializable {
         $this->group = $arr_style['Group'];
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return array(
              'Index' => $this->getIndex(),
@@ -181,7 +181,7 @@ class StyleObject implements \JsonSerializable {
 		$selected = $this->getSelected();
 		if(is_array($selected)){
 			$output = '';
-			foreach($selected AS $item){
+			foreach($selected as $item){
 				$output .= $this->getPrefix() . $item . $this->getSuffix() . ' ';
 			}
 			return trim($output);

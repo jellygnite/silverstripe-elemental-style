@@ -332,8 +332,7 @@ class DynamicStyleExtension extends DataExtension
 	*
 	* @return array
 	*/	
-	protected function getEmptyString($fieldStyles)
-	{
+	protected function getEmptyString($fieldStyles) {
 		$emptystring =  _t(__CLASS__.'.EXTRA_STYLES', 'Please select...');
 		foreach($fieldStyles as $key=>$value){
 			if(empty($value)) {
@@ -350,9 +349,8 @@ class DynamicStyleExtension extends DataExtension
 	*
 	* @return array
 	*/	
-	protected function getExtraStyles()
-	{
-		return json_decode($this->getOwner()->ExtraStyle, true);
+	protected function getExtraStyles() {
+		return json_decode((string) $this->getOwner()->ExtraStyle, true);
 	}	
 	
 	/**
