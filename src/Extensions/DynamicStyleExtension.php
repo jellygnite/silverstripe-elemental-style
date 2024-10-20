@@ -589,7 +589,7 @@ class DynamicStyleExtension extends DataExtension
 					$extra_css_classes[] = $styleobject->getFormattedSelected();
 				}
 			}
-			return implode(' ', $extra_css_classes);
+			return preg_replace('!\s+!', ' ', implode(' ', $extra_css_classes));
 		}
 		return null;
 		
