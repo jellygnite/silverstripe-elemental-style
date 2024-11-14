@@ -616,11 +616,11 @@ class DynamicStyleExtension extends DataExtension
 		$extra_css_classes[] = $style;
 		
 		// add base class name
-		$extra_css_classes[] = strtolower($this->getOwner()->getBaseClassName());
-		// add default css class 
-		$extra_css_classes[] = strtolower($this->getOwner()->getDefaultCssClass());
+		$extra_css_classes[] = strtolower($this->getOwner()->getBaseClassName() ?? '');
+		// add default css class
+		$extra_css_classes[] = strtolower($this->getOwner()->getDefaultCssClass() ?? '');
 		// add extra css class to end of list
-		$extra_css_classes[] = strtolower($this->getOwner()->ExtraClass);
+		$extra_css_classes[] = strtolower($this->getOwner()->ExtraClass ?? '');
 		// add extra styles with null location
 		$extra_css_classes[] = $this->getStyleByLocation();
 
