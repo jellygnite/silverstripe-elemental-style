@@ -346,7 +346,7 @@ There are a few ways to use the styles in your templates.
 The original $StyleVariant variable will output all styles that don't use the location option. e.g.
 
 ```
-<section class="element <% if $StyleVariant %> $StyleVariant<% end_if %> id="$Anchor">
+<section class="element <% if $StyleVariant %> $StyleVariant<% end_if %>" id="$Anchor">
 ```
 
 The $StyleByLocation method is more powerful and allows you to create multiple styles that can be used throughout your templates.
